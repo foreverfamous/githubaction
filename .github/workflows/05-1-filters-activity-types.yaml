@@ -1,14 +1,48 @@
-name: 05 -1 - Evenet Filters and Activity Types
+name: 01.build
 
 on:
-    pull_request:
-        types:
-            - closed
-        branches:
-            - main
-            
+  push:
+  workflow_dispatch:
+    inputs:
+      env:
+        type: string
+        required: true
+        description: enter env name
+            - qa
+            - stg
+            - prd
+      change_ticket:
+        type: string
+        required: false
+        description: enter change number
+
+      file_name:
+        type: string
+        required: false
+        description: enter file name
+
+env:
+  GITHUB_TOKEN: "FJLLLHH"
+  JFROG_TOKEN: "jfrogtoken"
+  SONAR_TOKEN: "sonartoken"
+  
 jobs:
-    echo:
-        runs-on: ubuntu-latest
-        steps:
-            - run: echo "Running whenever a PR is closed And base branch is main"
+  build:
+    env:
+      FILE_1: file1
+      FILE_2: "file2"
+    runs-on: ubuntu-latest
+    outputs: ${{steps.service_name.outputs.SERVICE}}
+    steps:
+      - name: build the job
+        id: service_name
+        if: ${{$FILE_1}}
+        run:
+          echo "hello world"
+          echo "SERVICE=app >> $GITHUB_OUTPUTS"
+          
+    
+
+ 
+        
+      
