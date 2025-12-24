@@ -60,7 +60,7 @@ jobs:
       - name: another step
         run: |
           echo "${{needs.envprinttest.outputs.result}}"
-          echo "${{env.MOS_USER}}
+          echo "${{env.MOS_USER}}"
           echo "$MOS_USER"
           echo "${{env.SECRET}}"
   
