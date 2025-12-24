@@ -17,9 +17,17 @@ on:
         type: string
         default: main
 
+env:
+  GITHUB_TOKEN: "SJDHIDHD"
+  MOS_USER: "mosuser"
+  MOS_PASWD: "mospaswd"
+  
 jobs:
   envprinttest:
     runs-on: ubuntu-latest
+    env:
+      USER: "user"
+      PASSWORD: "password"
     outputs:
       result: ${{steps.example.outputs.TICKET}}
     steps: 
@@ -27,6 +35,8 @@ jobs:
         run: |
           echo "TICKET=CHG8890">> "$GITHUB_OUTPUT"
       - name: envprint
+        env:
+          SECRET: "secret"
         run: |
           echo "MYNAME=PRIYA">> "$GITHUB_ENV"
           echo "HUSBAND=SURAJ">> "$GITHUB_ENV"
@@ -38,6 +48,8 @@ jobs:
           echo "$MYNAME"
           echo "$HUSBAND"
           echo "change number is ${{steps.example.outputs.TICKET}}"
+          echo "${{env.GITHUB_TOKEN}}"
+          echo "${{env.SECRET}}"
           
   build:
     runs-on: ubuntu-latest
@@ -46,6 +58,9 @@ jobs:
       - name: another step
         run: |
           echo "${{needs.envprinttest.outputs.result}}"
+          echo "${{env.MOS_USER}}
+          echo "$MOS_USER"
+          echo "${{env.SECRET}}"
   
       
       
