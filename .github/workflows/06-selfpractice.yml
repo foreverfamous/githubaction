@@ -1,5 +1,7 @@
 name: 06. selfpractice
 
+run-name: Deploy to ${{ inputs.env }} by @${{ github.actor }}
+
 on:
   # push:
   #   - main
