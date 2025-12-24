@@ -45,7 +45,7 @@ jobs:
     steps:
       - name: another step
         run: |
-          echo "${{needs.envprinttest.outputs.result"
+          echo "${{needs.envprinttest.outputs.result}}"
   
       
       
