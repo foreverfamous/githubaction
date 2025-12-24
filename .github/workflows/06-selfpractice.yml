@@ -1,0 +1,37 @@
+name: 06. selfpractice
+
+on:
+  # push:
+  #   - main
+  workflow_dispatch:
+    inputs:
+      env:
+        description: "enter env name"
+        type: choice
+        options:
+        - stg
+        - dev
+        - prd
+      branch:
+        description: "enter your Branch name"
+        type: string
+        default: main
+
+jobs:
+  envprinttest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: envprint
+        run:
+          echo "MYNAME=PRIYA">> "$GITHUB_ENV"
+          echo "HUSBAND=SURAJ">> "$GITHUB_ENV"
+  
+        
+      
+      
+      
+
+      
+      
+  
