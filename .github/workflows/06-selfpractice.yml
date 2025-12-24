@@ -21,7 +21,7 @@ jobs:
   envprinttest:
     runs-on: ubuntu-latest
     outputs:
-      result: ${{steps.example.output.TICKET}}
+      result: ${{steps.example.outputs.TICKET}}
     steps: 
       - id: example
         run: |
