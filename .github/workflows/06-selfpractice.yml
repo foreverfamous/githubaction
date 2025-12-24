@@ -37,7 +37,7 @@ jobs:
         run: |
           echo "$MYNAME"
           echo "$HUSBAND"
-          echo "change number is ${{steps.example.output.TICKET"
+          echo "change number is ${{steps.example.output.TICKET}}"
           
   build:
     runs-on: ubuntu-latest
