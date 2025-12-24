@@ -20,8 +20,12 @@ on:
 jobs:
   envprinttest:
     runs-on: ubuntu-latest
-
-    steps:
+    outputs:
+      result: ${{steps.example.output.TICKET}}
+    steps: 
+      - id: example
+        run: |
+          echo "TICKET=CHG8890">> "$GITHUB_OUTPUT"
       - name: envprint
         run: |
           echo "MYNAME=PRIYA">> "$GITHUB_ENV"
@@ -33,8 +37,15 @@ jobs:
         run: |
           echo "$MYNAME"
           echo "$HUSBAND"
+          echo "change number is ${{steps.example.output.TICKET"
           
-      
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: another step
+        run: |
+          echo "$result"
+  
       
       
 
