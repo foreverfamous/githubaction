@@ -54,6 +54,7 @@ jobs:
           echo "${{env.SECRET}}"
           
   build:
+    if: ${{success()}}
     runs-on: ubuntu-latest
     needs: envprinttest
     steps:
