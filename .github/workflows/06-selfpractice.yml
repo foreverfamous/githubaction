@@ -26,6 +26,8 @@ jobs:
         run:
           echo "MYNAME=PRIYA">> "$GITHUB_ENV"
           echo "HUSBAND=SURAJ">> "$GITHUB_ENV"
+          echo "$MYNAME"
+          echo "$HUSBAND"
   
         
       
